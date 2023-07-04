@@ -17,12 +17,12 @@
               >Sobre nosotros</router-link
             >
           </li>
-          <li class="nav-item">
+          <li class="nav-item" v-if="!isUserAuthenticated">
             <router-link class="nav-link px-3" to="/register"
               >Registrarse</router-link
             >
           </li>
-          <li class="nav-item">
+          <li class="nav-item" v-if="!isUserAuthenticated">
             <router-link class="nav-link px-3" to="/signin"
               >Iniciar sesión</router-link
             >

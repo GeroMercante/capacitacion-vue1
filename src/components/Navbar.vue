@@ -27,6 +27,11 @@
               >Iniciar sesión</router-link
             >
           </li>
+          <li class="nav-item" v-if="isUserAuthenticated">
+            <button class="btn btn-danger mx-5" @click="logout">
+              Cerrar sesión
+            </button>
+          </li>
         </ul>
       </div>
     </div>
@@ -36,6 +41,16 @@
 <script>
 export default {
   name: "Navbar",
+  computed: {
+    isUserAuthenticated() {
+      return this.$store.state.user !== null;
+    },
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch("logout");
+    },
+  },
 };
 </script>
 

@@ -35,9 +35,8 @@
 
 <script>
 import { ref } from "vue";
+import { useStore } from "vuex";
 import { useRouter } from "vue-router";
-
-const router = useRouter();
 
 export default {
   // composition api
@@ -46,11 +45,22 @@ export default {
     const email = ref("");
     const password = ref("");
 
-    const handleSubmit = () => {
-      console.log(email.value, password.value, displayName.value);
-    };
+    const store = useStore();
+    const router = useRouter();
 
-    return { handleSubmit, email, password, displayName };
+    const handleSubmit = async () => {
+      try {
+        await store.dispatch("signup", {
+          displayName: displayName.value,
+          email: email.value,
+          password: password.value,
+        });
+        router.push("/users");
+      } catch (err) {
+        console.error(err.messagge);
+      }
+    };
+    return { handleSubmit, displayName, email, password };
   },
 };
 </script>

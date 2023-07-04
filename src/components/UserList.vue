@@ -53,7 +53,9 @@
     <div class="container mt-4">
       <div class="row">
         <div class="col">
-          <p class="h3 fw-bold text-success">Listado de usuarios JSON local.</p>
+          <p class="h3 fw-bold text-success">
+            Listado de usuarios Array de Objetos local.
+          </p>
           <p class="fst-italic">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit
             quibusdam magni dolore iure delectus nihil ratione ex? Eum, quo
@@ -101,7 +103,7 @@ export default {
   components: { Loader },
   data: function () {
     return {
-      // local JSON
+      // local array de objetos
       users: UserService.getAllUsers(),
       // consumiendo api
       usuarios: [],
